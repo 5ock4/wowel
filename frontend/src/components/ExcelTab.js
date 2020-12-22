@@ -12,9 +12,9 @@ class ExcelTab extends React.Component {
       cols: null,
     };
     this.fileHandler = this.fileHandler.bind(this);
-    // this.toggle = this.toggle.bind(this);
+    this.toggle = this.toggle.bind(this);
     this.renderFile = this.renderFile.bind(this);
-    // this.fileInput = React.createRef();
+    this.fileInput = React.createRef();
   }
 
   renderFile = (fileObj) => {
@@ -53,11 +53,11 @@ class ExcelTab extends React.Component {
     }
   };
 
-  // toggle() {
-  //   this.setState({
-  //     isOpen: !this.state.isOpen,
-  //   });
-  // }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  }
 
   // TODO: run this in debug mode to see all the vars
   render() {
