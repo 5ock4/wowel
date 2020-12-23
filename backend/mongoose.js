@@ -23,7 +23,7 @@ const createWord = async (req, res, next) => {
 };
 
 const getWords = async (req, res, next) => {
-  const words = await Word.find().exec(); // TODO: exec return a real propise - what does it mean?
+  const words = await Word.find().exec(); // TODO: exec return a real promise
   res.json(words);
 }
 
