@@ -3,6 +3,9 @@ import { useDropzone } from "react-dropzone";
 import { useStyles } from "./DropzoneStyles";
 import Typography from "@material-ui/core/Typography";
 import axios from 'axios';
+import xlsx from 'xlsx'
+
+axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 function Dropzone(props) {
 
@@ -40,18 +43,19 @@ function Dropzone(props) {
   const onDrop = useCallback((acceptedFiles) => {
     acceptedFiles.forEach((file) => {
 
-      console.log('file:');
-      console.log(file);
+      let reader = new FileReader();
 
-      axios.post(process.env.REACT_APP_BACKEND_URL)
-
-      axios.post('/api', file)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+      reader.onload = (e) => {
+        let data = e.target.result;
+        axios.post(process.env.REACT_APP_BACKEND_URL, {text: data})
+                 .then(function (response) {
+                   console.log(response);
+                 })
+                 .catch(function (error) {
+                   console.log(error);
+                 })
+      }
+      reader.readAsBinaryString(file);
 
     });
   }, []);

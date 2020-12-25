@@ -10,16 +10,13 @@ mongoose
   .then(() => console.log("Connected to database!")) // This is propmise? 
   .catch(() => console.log("Connection failed!")); // TODO: is it the same as the second argument for then?
 
-const createWord = async (req, res, next) => {
+const createWord = async (word) => {
   const createdWord = new Word({
-    word: req.body.word,
-    type: req.body.type
+    word: word,
+    type: 'tst'
   });
   console.log(createdWord);
   const result = await createdWord.save();
-  console.log(typeof createWord._id); // Using mongoose virtual getter - getting ObjectID as a string
-                                      // - otherwise its a special datatype of MongoDB
-  res.json(result);
 };
 
 const getWords = async (req, res, next) => {

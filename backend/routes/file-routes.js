@@ -1,12 +1,23 @@
 const express = require('express');
-const fs = require("fs");
-const busboy = require("connect-busboy");
 const bodyParser = require('body-parser');
 const db = require('../mongoose');
+const xlsx = require('xlsx');
+const utf8 = require('utf8')
+const fs = require('fs');
 
 const router = express.Router();
 
-// router.use(busboy);
+router.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+  );
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+
+  next();
+});
+
 router.use(bodyParser.json());
 
 router.get("/api", (req, res, next) => {
@@ -14,16 +25,14 @@ router.get("/api", (req, res, next) => {
 });
 
 router.post("/api", (req, res) => {
-  let fstream;
-  req.pipe(req.busboy);
-  req.busboy.on("file", (fieldname, file, filename) => {
-    console.log("Uploading: " + filename);
-    fstream = fs.createWriteStream(__dirname + "/files/" + filename);
-    file.pipe(fstream);
-    fstream.on("close", () => {
-      res.redirect("back");
-    });
-  });
+
+  console.log('Post in progress...')
+
+  let workbook = xlsx.read(req.body.text, {type: 'binary'})
+  console.log(workbook.Sheets.List1.A1)
+
+  db.createWord(workbook.Sheets.List1.A1.v)
+  res.send({status: 'OK'})
 });
 
 module.exports = router;
