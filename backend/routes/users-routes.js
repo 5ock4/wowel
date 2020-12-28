@@ -1,13 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('../mongoose');
+const db = require('../controllers/phrases-controllers');
 
 const router = express.Router();
 
-router.use(bodyParser.json());
-
-router.get('/', db.getWord);
-
-router.post('/', db.createWord);
 
 module.exports = router;
