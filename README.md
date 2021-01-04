@@ -1,3 +1,4 @@
-# Wowel
+# ...UNDER CONSTRUCTION...
+## Wowel
 
-Efficient vocabulary learning app - currently support only for learning German
+Efficient vocabulary learning web app - currently support only for learning German.
