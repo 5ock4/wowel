@@ -1,14 +1,23 @@
 const mongoose = require("mongoose");
+const parser = require("../utils/parsers")
+const xlsx = require('xlsx');
 
 const Phrase = require("../models/phrase");
 
-const createPhrase = async (phrase) => {
+const createPhrases = async (req, res, next) => {
+  
+  let workbook = xlsx.read(req.body.text, {type: 'binary'});
+  
+  let phrasesMap = parser.XlsxDataParser(workbook);
+  
   const createdPhrase = new Phrase({
     phrase: phrase,
     type: 'tst'
   });
   console.log(createdPhrase);
   const result = await createdPhrase.save();
+
+  res.send({status: 'OK'})
 };
 
 const getPhrase = async (req, res, next) => {
@@ -16,5 +25,5 @@ const getPhrase = async (req, res, next) => {
   res.json(words);
 }
 
-exports.createPhrase = createPhrase;
+exports.createPhrases = createPhrases;
 exports.getPhrase = getPhrase;

@@ -6,4 +6,3 @@ const phraseSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Phrase', phraseSchema); // will create words collection
-
