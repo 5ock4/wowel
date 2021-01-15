@@ -1,4 +1,6 @@
 # ...UNDER CONSTRUCTION...
 ## Wowel
 
-Efficient vocabulary learning web app - currently support only for learning German.
+App for creating and maintaining vocabulary.
+
+MERN stack is used.
