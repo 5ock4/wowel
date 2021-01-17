@@ -7,14 +7,14 @@ import xlsx from 'xlsx'
 
 import "./App.css";
 
-function App() {
+const App = () => {
 
   return (
     <div>
       <NavBar />
       <Dropzone />
     </div>
-  );
+  )
 }
 
 export default App;

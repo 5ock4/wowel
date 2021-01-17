@@ -3,10 +3,12 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
 
-import { useStyles } from './DropzoneStyles'
+import useStyles from './NavBarStyles'
 
 const NavBar = () => {
-  const classes = useStyles();
+  const classes = useStyles()
+  console.log(`in NavBar: ${classes}`)
+  console.log(classes)
 
   return(
     <div>
@@ -21,4 +23,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar;
+export default NavBar

@@ -1,8 +1,6 @@
 class Parser {
   // Returns parsed data afrom XLSX
   static xlsx2map(data) {
-    console.log(data.A1);
-
     // Getting all words to one single list
     const words = Object.entries(data)
       .filter((x) => x[0] != "!ref") // Probably sth not needed

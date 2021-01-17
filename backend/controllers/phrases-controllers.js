@@ -8,10 +8,10 @@ const createPhrases = async (req, res, next) => {
   
   let workbook = xlsx.read(req.body.text, {type: 'binary'})
   
-  let phrasesList = Parser.xlsx2map(workbook.Sheets.List1)
+  let phrasesList = Parser.xlsx2map(workbook.Sheets.List1) // TODO: Select sheets more generally
   console.log(phrasesList)
 
-  phrasesList.forEach(async (elem) => {
+  phrasesList.forEach(async (elem) => { // TODO: handle better the 
     const createdPhrase = new Phrase({
       _id: elem[0],
       phrase: elem[0],
