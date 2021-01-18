@@ -1,6 +1,7 @@
 import React, { useMemo, useCallback, useEffect } from "react"
 import { useDropzone } from "react-dropzone"
 import Typography from "@material-ui/core/Typography"
+import Container from '@material-ui/core/Container'
 import styles from "./DropzoneStyles"
 import axios from 'axios'
 
@@ -50,7 +51,8 @@ const Dropzone = () => {
   // TODO: check why it is called so many times and why is it always 1
 
   return (
-    <section className="container">
+    // <section className="container">
+    <Container>
       <div {...getRootProps({ style })}>
         <input {...getInputProps()} />
         <Typography>
@@ -60,7 +62,8 @@ const Dropzone = () => {
       <aside>
         <Typography variant="subtitle1">Files</Typography>
       </aside>
-    </section>
+    </Container>
+    // </section>
   );
 }
 
