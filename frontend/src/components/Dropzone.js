@@ -5,10 +5,13 @@ import Container from '@material-ui/core/Container'
 import styles from "./DropzoneStyles"
 import axios from 'axios'
 
+import useStyles from '../shared/styles'
+
 axios.defaults.headers.post['Content-Type'] = 'application/json'
 
 const Dropzone = () => {
 
+  const classes = useStyles()
   useEffect(() => { console.log(process.env.REACT_APP_BACKEND_URL)}) //TODO: what is this? Probably to delete
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -52,7 +55,8 @@ const Dropzone = () => {
 
   return (
     // <section className="container">
-    <Container>
+    <div className={classes.dropzone__contentContainer}>
+      <Container >
       <div {...getRootProps({ style })}>
         <input {...getInputProps()} />
         <Typography>
@@ -60,10 +64,11 @@ const Dropzone = () => {
         </Typography>
       </div>
       <aside>
-        <Typography variant="subtitle1">Files</Typography>
+        <Typography variant="subtitle1">File: </Typography>
       </aside>
     </Container>
-    // </section>
+    {/* </section> */}
+    </div>
   );
 }
 

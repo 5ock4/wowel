@@ -1,14 +1,15 @@
 import React from "react";
-import NavBar from "./components/NavBar";
+import Container from '@material-ui/core/Container'
 import Dropzone from "./components/Dropzone";
-import ResponsiveDrawer from "./components/Drawer"
+import MainNavigation from "./components/Navigation/MainNavigation"
+import useStyles from './shared/styles'
 
 const App = () => {
+  const classes = useStyles()
 
   return (
     <div>
-      <NavBar />
-      <ResponsiveDrawer />
+      <MainNavigation />
       <Dropzone />
     </div>
   )
