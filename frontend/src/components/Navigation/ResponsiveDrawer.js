@@ -15,7 +15,7 @@ import DetailsIcon from '@material-ui/icons/Details';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import { useTheme } from '@material-ui/core/styles';
 
-import useStyles from '../../shared/styles'
+import useStyles from './ResponsiveDrawerStyles'
 
 const ResponsiveDrawer = (props) => {
   const { window } = props;

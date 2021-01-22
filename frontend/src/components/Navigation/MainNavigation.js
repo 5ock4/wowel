@@ -16,8 +16,8 @@ const MainNavigation = props => {
 
   // TODO: some stuff should be probably added then to App.js (see material-ui responsive Drawer doc)
   return (
-    <div className={classes.root}> 
-      <NavBar handleDrawerToggle={handleDrawerToggle}/>
+    <div> 
+      <NavBar handleDrawerToggle={handleDrawerToggle} />
       <ResponsiveDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
     </div>
   )
