@@ -14,9 +14,15 @@ const NavBar = props => {
   // TODO: not sure if I want position static on AppBar
   return(
     <div>
-      <AppBar /*position="static"*/ className={classes.navBar__appBar}> 
+      <AppBar position="fixed" className={classes.navBar__appBar}> 
         <Toolbar>
-          <IconButton edge="start" className={classes.navBar__menuButton} color="inherit" aria-label="menu" onClick={props.handleDrawerToggle}>
+          <IconButton 
+            edge="start" 
+            className={classes.navBar__menuButton} 
+            color="inherit" 
+            aria-label="menu" 
+            onClick={props.handleDrawerToggle}
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.navBar__title}>

@@ -2,7 +2,10 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const drawerWidth = 240;
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => console.log(theme) || ({
+  root: {
+    display: "flex"
+  },
   navBar__appBar: {
     background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
     border: 0,
@@ -17,9 +20,6 @@ const useStyles = makeStyles((theme) => ({
   },
   navBar__title: {
     flexGrow: 1,
-  },
-  root: {
-    display: 'flex',
   },
   responsiveDrawer__drawer: {
     [theme.breakpoints.up('sm')]: {
