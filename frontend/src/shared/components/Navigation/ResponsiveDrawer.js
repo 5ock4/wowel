@@ -13,30 +13,60 @@ import MailIcon from '@material-ui/icons/Mail';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import DetailsIcon from '@material-ui/icons/Details';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import { NavLink } from 'react-router-dom';
 import { useTheme } from '@material-ui/core/styles';
 
 import useStyles from './ResponsiveDrawerStyles'
+import { useStyles as useStylesShared } from '../../styles'
 
 const ResponsiveDrawer = (props) => {
   const { window } = props;
-  const classes = useStyles();
+  const classes = {...useStyles(), ...useStylesShared()};
   const theme = useTheme();
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
 
   const drawer = (
     <div>
-      <div className={classes.responsiveDrawer__toolbar} />
+      <div className={classes.toolbar} />
       <Divider />
       <List>
-        {['Upload', 'Browse', 'Detail view'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon> 
-              { index === 0 ? <CloudUploadIcon /> : null}
-              { index === 1 ? <ListAltIcon /> : null}
-              { index === 2 ? <DetailsIcon /> : null}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        <ListItem
+          button
+          selected={selectedIndex === 1}
+          onClick={(event) => handleListItemClick(event, 1)}
+          component={NavLink} to="/"
+        >
+          <ListItemIcon>
+          <CloudUploadIcon />
+          </ListItemIcon>
+          <ListItemText primary="Upload" />
+        </ListItem>
+        <ListItem
+          button
+          selected={selectedIndex === 2}
+          onClick={(event) => handleListItemClick(event, 2)}
+          component={NavLink} to="/browse"
+        >
+          <ListItemIcon>
+          <ListAltIcon />
+          </ListItemIcon>
+          <ListItemText primary="Browse" />
+        </ListItem>
+        <ListItem
+          button
+          selected={selectedIndex === 3}
+          onClick={(event) => handleListItemClick(event, 3)}
+          component={NavLink} to="/detail"
+        >
+          <ListItemIcon>
+            <DetailsIcon />
+          </ListItemIcon>
+          <ListItemText primary="Detail view" />
+        </ListItem>
       </List>
       <Divider />
     </div>

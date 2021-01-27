@@ -1,8 +1,7 @@
 import React from 'react'
-import styles from '../DropzoneStyles';
 import NavBar from "./NavBar";
 import ResponsiveDrawer from "./ResponsiveDrawer"
-import useStyles from '../../shared/styles'
+import { useStyles } from '../../styles'
 
 
 const MainNavigation = props => {

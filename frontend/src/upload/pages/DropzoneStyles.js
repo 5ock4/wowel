@@ -5,7 +5,6 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     padding: "100px",
-    marginTop: "5em",
     borderWidth: 2,
     borderRadius: 2,
     borderColor: "#eeeeee",

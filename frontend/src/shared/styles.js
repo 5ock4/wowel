@@ -2,22 +2,18 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const drawerWidth = 240;
 
-// TODO: maybe won't be needed at all in future
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex"
-  },
+export const useStyles = makeStyles((theme) => ({
   // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
   },
-  dropzone__contentContainer: {
+  contentContainer: {
     [theme.breakpoints.up('sm')]: {
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth
-    }
+    },
+    marginTop: "5em",
   },
 }))
-
-export default useStyles

@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   // necessary for content to be below app bar
-  responsiveDrawer__toolbar: theme.mixins.toolbar,
   responsiveDrawer__drawerPaper: {
     width: drawerWidth,
   },
