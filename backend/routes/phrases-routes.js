@@ -3,9 +3,7 @@ const phrasesControllers = require('../controllers/phrases-controllers');
 
 const router = express.Router();
 
-router.get("/api", (req, res, next) => {
-  res.send({ express : 'api'});
-});
+router.get("/api", phrasesControllers.getPhrases);
 
 router.post("/api", phrasesControllers.createPhrases);
 

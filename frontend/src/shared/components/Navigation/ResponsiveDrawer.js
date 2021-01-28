@@ -33,7 +33,7 @@ const ResponsiveDrawer = (props) => {
     <div>
       <div className={classes.toolbar} />
       <Divider />
-      <List>
+      <List onClick={props.handleDrawerClose}>
         <ListItem
           button
           selected={selectedIndex === 1}

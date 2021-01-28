@@ -6,7 +6,8 @@ import {
   Switch
 } from 'react-router-dom'
 import { Typography, Container } from '@material-ui/core'
-import Dropzone from "./upload/pages/Dropzone";
+import Dropzone from "./_upload/pages/Dropzone";
+import Browse from "./_browse/pages/Browse"
 import MainNavigation from "./shared/components/Navigation/MainNavigation"
 import { useStyles as useStylesShared } from './shared/styles'
 import { ThemeProvider } from '@material-ui/core/styles'
@@ -23,10 +24,10 @@ const App = () => {
         <Dropzone />
       </Route>
       <Route path="/detail" exact>
-        <Typography variant="body1">Detail page</Typography>
+        <Typography>Detail page</Typography>
       </Route>
       <Route path="/browse" exact>
-        <Typography>Browse page</Typography>
+        <Browse/>
       </Route>
       <Redirect to="/" /> 
     </Switch>

@@ -13,11 +13,18 @@ const MainNavigation = props => {
     setMobileOpen(!mobileOpen);
   }
 
+  const handleDrawerClose = () => {
+    setMobileOpen(false);
+  }
+
   // TODO: some stuff should be probably added then to App.js (see material-ui responsive Drawer doc)
   return (
     <div> 
       <NavBar handleDrawerToggle={handleDrawerToggle} />
-      <ResponsiveDrawer mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
+      <ResponsiveDrawer mobileOpen={mobileOpen} 
+                        handleDrawerToggle={handleDrawerToggle} 
+                        handleDrawerClose={handleDrawerClose}
+      />
     </div>
   )
 }

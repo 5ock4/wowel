@@ -26,10 +26,20 @@ const createPhrases = async (req, res, next) => {
   res.send({status: 'OK'})
 }
 
-const getPhrase = async (req, res, next) => {
-  const phrases = await Phrase.find().exec() // TODO: exec return a real promise
-  res.json(words)
+const getPhrases = async (req, res, next) => {
+  let phrases
+  try {
+    phrases = await Phrase.find().exec()
+  } catch (err) {
+    const error = new HttpError(
+      'Fetching phrases failed, please try again later.',
+      500
+    )
+    return next(error)
+  }
+  // TODO: check once again the process of creating this JSON
+  res.json({ phrases: phrases.map(phrase => phrase.toObject({ getters: true})) })
 }
 
 exports.createPhrases = createPhrases
-exports.getPhrase = getPhrase
+exports.getPhrases = getPhrases
